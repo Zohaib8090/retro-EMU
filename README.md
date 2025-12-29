@@ -1,5 +1,6 @@
 # React + Vite
-our website retro-emu.vercel.app
+our website https://retro-emu.vercel.app/
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
