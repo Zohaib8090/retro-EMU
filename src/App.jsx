@@ -136,7 +136,7 @@ function App() {
       </main>
 
       <footer className="glass">
-        <p>&copy; 2024 NES BEYOND | Built with Antigravity</p>
+        <p>&copy; 2026 NES BEYOND | Built by zohaib </p>
       </footer>
     </div>
   );
