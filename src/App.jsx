@@ -8,6 +8,7 @@ function App() {
   const [speed, setSpeed] = useState(1);
   const [saveData, setSaveData] = useState(null);
   const [loadRequested, setLoadRequested] = useState(null);
+  const [isMobileMode, setIsMobileMode] = useState(false);
   const getSaveRef = useRef(null);
 
   const handleSave = () => {
@@ -69,12 +70,19 @@ function App() {
               speed={speed}
               onSaveReady={(fn) => getSaveRef.current = fn}
               onLoadRequested={loadRequested}
+              isMobileMode={isMobileMode}
             />
 
             <div className="advanced-controls glass">
               <div className="state-controls">
                 <button className="btn-secondary" onClick={handleSave}>SAVE STATE</button>
                 <button className="btn-secondary" onClick={handleLoad}>LOAD STATE</button>
+                <button 
+                  className={`btn-secondary ${isMobileMode ? 'active-mobile' : ''}`} 
+                  onClick={() => setIsMobileMode(!isMobileMode)}
+                >
+                  {isMobileMode ? 'DISABLE TOUCH' : 'MOBILE MODE'}
+                </button>
               </div>
 
               <div className="speed-controls">

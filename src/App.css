@@ -106,6 +106,13 @@
   box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
 }
 
+.btn-secondary.active-mobile {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
+}
+
 .controls-panel {
   width: 300px;
   display: flex;
@@ -219,12 +226,142 @@ footer {
 
 @media (max-width: 900px) {
   .emulator-wrapper {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 }
 
 @media (max-width: 600px) {
   .hero-section h1 {
     font-size: 2.5rem;
+  }
+}
+
+/* Touch Controls Styles */
+.emulator-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.touch-controls-overlay {
+  display: grid;
+  grid-template-areas: "dpad center actions";
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  width: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  padding: 1rem 0;
+}
+
+.d-pad {
+  grid-area: dpad;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.d-pad-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.d-pad-center {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.center-buttons {
+  grid-area: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.action-buttons {
+  grid-area: actions;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.touch-btn {
+  width: 60px;
+  height: 60px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  padding: 0;
+}
+
+.touch-btn:active {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0.95);
+  box-shadow: 0 0 15px white;
+}
+
+.d-pad .touch-btn {
+  border-radius: 8px;
+  width: 55px;
+  height: 55px;
+}
+
+.center-buttons .touch-btn {
+  width: 80px;
+  height: 30px;
+  border-radius: 15px;
+  font-size: 8px;
+}
+
+.btn-a,
+.btn-b {
+  width: 70px;
+  height: 70px;
+  font-size: 18px;
+  border-width: 3px;
+}
+
+.btn-a {
+  background: rgba(255, 0, 85, 0.2);
+  border-color: var(--primary-color);
+  margin-top: -20px;
+  /* Offset A button like real NES controller */
+}
+
+.btn-b {
+  background: rgba(255, 0, 85, 0.2);
+  border-color: var(--primary-color);
+}
+
+@media (max-width: 600px) {
+  .touch-controls-overlay {
+    grid-template-areas:
+      "dpad actions"
+      "center center";
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .center-buttons {
+    flex-direction: row;
+    padding-bottom: 0;
   }
 }
